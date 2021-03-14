@@ -1,0 +1,21 @@
+<!-- Team Section -->
+<section id="team">
+  <div class="container">
+    <div id="row">
+      <div class="col-md-6">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="section-title">
+              {% for item in chef %}
+            <h2>{{ item.title }}</h2>
+          </div>
+          <p>{{ item.desc }}</p>
+          <p>{{ item.desc }}</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="team-img"><img src={{ item.photo.url }} alt="..."></div>
+      </div>
+        {% endfor %}
+    </div>
+  </div>
+</section>

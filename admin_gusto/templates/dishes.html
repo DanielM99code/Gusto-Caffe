@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="section-title text-center">
+            <h3>Dishes</h3>
+        </div>
+        <div class="col-md-10 col-md-offset-1">
+            {% for item in dish %}
+            <div class="row">
+                <div class="col-md-3">
+                    <a href='{% url "dishes_delete" pk=item.pk %}'>
+                        <button type="button" class="btn btn-primary btn-sm">Delete</button>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href='{% url "dishes_update" pk=item.pk %}'>
+                        <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                    </a>
+                </div>
+                <div class="col-md-3">{{ item.title }}</div>
+                <div class="col-md-3">{{ item.dish_order }}</div>
+                <div class="col-md-3">{{ item.is_visible }}</div>
+                <div class="col-md-3">{{ item.price }}</div>
+                <div class="col-md-3">{{ item.category }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-9"><p>{{ item.desc }}</p></div>
+                <div class="team-img"><img src={{ item.photo.url }} alt="..."></div>
+            </div>
+            <hr/>
+            {% endfor %}
+        <div class="row">
+                <div class='col-md-6 centered'>
+                    <a href='{% url "dish_add" %}'>
+                        <button type="button" class="btn btn-primary btn-sm">
+                            New Dish
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <hr/>
+        </div>
+    </div>
+{% endblock %}
