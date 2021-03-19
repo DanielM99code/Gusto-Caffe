@@ -28,7 +28,7 @@ urlpatterns = [
 
     path('', include('main_gusto.urls')),
     path('admin-panel/', include('admin_gusto.urls')),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 if settings.DEBUG:
